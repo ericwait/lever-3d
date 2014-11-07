@@ -26,7 +26,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [ newHulls ] = CreateHulls(bwIm, orgIm, minCellDia, frame, minXY, minZ)
+function [ newHulls ] = CreateHulls(bwIm, orgIm, minCellDia, frame, minXY, minZ, labeledIm)
 global imageData
 
 newHulls = [];
@@ -37,6 +37,9 @@ end
 if ~exist('minZ','var')
     minZ = 0;
 end
+if ~exist('labeledIm','var')
+    labeledIm = 0;
+end
 
 [newHulls,~,~] = GetEmptyStructs();
 imageDims = [imageData.XDimension, imageData.YDimension, imageData.ZDimension];
@@ -45,7 +48,12 @@ scaleFactor  =  imageDims ./ max(imageDims) .* physDims/physDims(1);
 imDiv = imageDims /2;
 minCellVol = (4*pi*(minCellDia/2)^3)/3;
 
-stts = regionprops(bwIm,orgIm,'BoundingBox','PixelList','WeightedCentroid');
+if (labeledIm==0)
+    cc = bwconncomp(bwIm);
+else
+    cc = bwIm;
+end
+stts = regionprops(cc,orgIm,'BoundingBox','PixelList','WeightedCentroid');
 if isempty(stts)
     return
 end
