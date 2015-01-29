@@ -1056,7 +1056,7 @@ HRESULT Renderer::resetViewPort()
 	return S_OK;
 }
 
-void Renderer::setCurrentFrame(int frame)
+void Renderer::setCurrentFrame(unsigned int frame)
 {
 	if (frame>rootScene->getNumFrames())
 		frame = rootScene->getNumFrames()-1;

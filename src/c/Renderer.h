@@ -77,10 +77,11 @@ public:
 	HRESULT init();
 
 //Setters	
-	void setCurrentFrame(int frame);
+	void setCurrentFrame(unsigned int frame);
 	void incrementFrame();
 	void decrementFrame();
 	unsigned int getNumberOfFrames();
+	unsigned int getCurrentFrame(){ return currentFrame; }
 	void attachToRootScene(SceneNode* sceneIn, Section section, int frame);
 	void removeFromRootScene(SceneNode* sceneIn);
 

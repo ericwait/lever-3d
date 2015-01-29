@@ -343,6 +343,11 @@ HRESULT messageProcess( MSG& msg )
 				{
 					gRenderer->renderAll();
 					gRenderer->captureWindow();
+					if (gRenderer->getCurrentFrame() == 0)
+					{
+						gCapture = false;
+						gPlay = false;
+					}
 				}
 			}
 		}

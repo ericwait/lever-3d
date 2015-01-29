@@ -984,6 +984,13 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
 				gRotate = true;
 			}
 
+			else if (_strcmpi("captureTimeMovie", command) == 0)
+			{
+				gRenderer->setCurrentFrame(0);
+				gCapture = true;
+				gPlay = true;
+			}
+
 			else if (_strcmpi("transferUpdate",command)==0)
 			{
 				if (2>nrhs || 3<nlhs) mexErrMsgTxt("This is not the right number of input arguments for transferUpdate!");
