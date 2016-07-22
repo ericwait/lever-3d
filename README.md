@@ -1,3 +1,7 @@
+Hi! Note that we are preparing a new and much improved version of the LEVER 3-D 
+software. For more information, contact acohen 'at' coe.drexel.edu. Thanks!
+
+
 Copyright 2014 Andrew Cohen, Eric Wait, and Mark Winter
 
 This file is part of LEVER 3-D - the tool for 5-D stem cell segmentation,
